@@ -1,0 +1,101 @@
+.whosturn {
+  min-height: 10vh;
+  padding: 10px;
+  margin: 10px;
+}
+.scoreshow {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  width: 50vh;
+  text-align: center;
+  margin-top: 5vh;
+  .wins {
+    align-self: center;
+  }
+  @media (min-width: 400px) {
+    width: 100vh;
+  }
+}
+@keyframes border-blink {
+  0% {
+    font-size: 2.1em;
+  }
+  50% {
+    font-size: 2.3em;
+    color: darken(@color6, 20%);
+  }
+  100% {
+    color: @color6;
+    font-size: 2.2em;
+  }
+}
+.square {
+  position: relative;
+  float: left;
+  min-width: 2em;
+  width: 33.333333333%;
+  min-height: 2em;
+  height: 33.333333333%;
+  cursor: pointer;
+  will-change: border-color;
+  border-color: #111;
+  border-width: 2px;
+  text-align: center;
+  font-size: 2em;
+  max-width: 33.333333333%;
+  line-height: 0.7;
+  &.Center {
+    border-style: solid;
+  }
+  &.Top {
+    border-style: solid;
+    border-top-style: none;
+  }
+  &.Bottom {
+    border-style: solid;
+    border-bottom-style: none;
+  }
+  &.Left {
+    clear: both;
+    border-style: solid;
+    border-left-style: none;
+  }
+  &.Right {
+    border-style: solid;
+    border-right-style: none;
+  }
+  &.BottomLeft {
+    border-style: solid;
+    border-bottom-style: none;
+    border-left-style: none;
+  }
+  &.BottomRight {
+    border-style: solid;
+    border-bottom-style: none;
+    border-right-style: none;
+  }
+  &.TopLeft {
+    border-style: solid;
+    border-top-style: none;
+    border-left-style: none;
+  }
+  &.TopRight {
+    border-style: solid;
+    border-top-style: none;
+    border-right-style: none;
+  }
+  .value {
+    position: absolute;
+    padding: 0;
+    vertical-align: middle;
+    font-size: 2em;
+    margin-left: -0.3em;
+    &.blink {
+      color: @color6;
+      animation: border-blink 0.8s ease-in-out;
+    }
+  }
+}

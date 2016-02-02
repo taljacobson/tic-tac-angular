@@ -1,0 +1,116 @@
+/* CSS declarations go here */
+/* @media screen and (min-width: 520px) */
+@color1: #2F2933;
+@color2: #01A2A6;
+@color3: #29D9C2;
+@color4: #BDF271;
+@color5: #F9FFB5;
+@color6: #12f933;
+@color7: #FF6F69;
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f8f8f8;
+  padding-top: 50px;
+  font-family: 'Muli', sans-serif;
+}
+.h100 {
+  height: 100%;
+}
+.w100 {
+  width: 100%;
+}
+.ma-main-container {
+  @media (min-width: 520px) {
+    padding-top: 7vw;
+    padding-right: 0;
+  }
+}
+.arrowdiv {
+  text-align: center;
+  h2 {
+    margin: 5px;
+  }
+  i {
+    font-size: 1.4em;
+  }
+}
+.flex {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+  -webkit-align-content: stretch;
+  align-content: stretch;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  margin: 0.5em 10vw;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px @color4;
+  .flexitem {
+    display: flex;
+    flex-direction: column;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    justify-content: space-around;
+    .delete {
+      z-index: 999;
+    }
+  }
+  @media (min-width: 520px) {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    .flexitem {
+      flex-direction: row;
+      -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+      align-self: stretch;
+      .letsplay {
+        width: 100px;
+      }
+      .delete {
+        z-index: 999;
+        width: 100px;
+      }
+    }
+  }
+}
+.flex:not(.bg-success) {
+  background-color: @color5;
+  box-shadow: 1px 1px 2px @color3;
+}
+.footer {
+  min-height: 50px;
+  width: 100%;
+  background-color: lighten(@color2, 25%);
+  margin-top: 100px;
+}
+.my-modal-popup {
+  top: 10vh;
+  min-height: 200px;
+  @media (min-width: 1400px) {
+    .modal-lg {
+      width: 1308px;
+    }
+  }
+}
+@import "navbar.import.less";
+@import "tictactoe.import.less";

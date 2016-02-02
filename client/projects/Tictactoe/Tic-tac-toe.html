@@ -1,0 +1,41 @@
+<div class="" ng-hide="(TicTacToe.ownerOnline.status.online) && (TicTacToe.inviteOnline.status.online)">
+  <div class="text-center whosturn bg-danger">
+    <h3>the other player has logged off</h3>
+  </div>
+</div>
+
+<div class="" ng-show="(TicTacToe.ownerOnline.status.online) && (TicTacToe.inviteOnline.status.online)">
+  <div class="">
+    <div class="text-center whosturn" ng-class="(TicTacToe.game.owner == currentUser._id) == (TicTacToe.game.turn)? 'bg-success' : 'Error: source does not appear to be markup.'">
+      <h3>{{(TicTacToe.game.owner == currentUser._id) == (TicTacToe.game.turn)? 'your turn' : 'not your turn' }}</h3>
+    </div>
+  </div>
+
+  <div class="game">
+    <div class="board" ng-repeat="(cell, value) in TicTacToe.game.cells">
+      <div class="square {{cell}}" ng-click="TicTacToe.cellPicker(cell, currentUser)">
+        <span class="value">{{value}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <div class="scoreshow">
+      <div class="wins ">
+        <span>X wins</span>
+        <h1>{{TicTacToe.game.xWins}}</h1>
+      </div>
+
+      <div>
+        <button class="btn btn-danger" ng-click="TicTacToe.reset()">reset</button>
+      </div>
+      <div class="wins">
+        <span>
+          O wins
+        </span>
+        <h1>{{TicTacToe.game.oWins}}</h1>
+      </div>
+    </div>
+
+  </div>
+</div>

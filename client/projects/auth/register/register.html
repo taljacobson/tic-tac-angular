@@ -1,0 +1,41 @@
+<div>
+
+  <div class="container col-md-offset-2 col-md-8">
+
+    <div class="bg-primary">
+      <div class="text-center whosturn">
+        <h3 class="">Register a new account</h3>
+      </div>
+    </div>
+    <div >
+      <div class="row">
+        <p class="text-center text-info">
+          Register with your email</p>
+      </div>
+
+      <form name="loginForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" type="text" ng-model="register.credentials.email" aria-label="email" required/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input class="form-control" type="password" ng-model="register.credentials.password" aria-label="password" required/>
+        </div>
+        <div class=" space-between center">
+          <button class="btn btn-primary " ng-click="register.register()" aria-label="login" ng-disabled="register.registerForm.$invalid()">Register
+          </button>
+        </div>
+      </form>
+
+      <div ng-show="register.error" class="text-center whosturn bg-danger" >
+        <p class="">{{ register.error.reason }}</p>
+      </div>
+
+    </div>
+    <div class="text-center" >
+      <a class="btn btn-info " href="/login">Already a user?</a>
+    </div>
+
+  </div>
+</div>

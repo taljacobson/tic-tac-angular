@@ -1,0 +1,47 @@
+<div>
+
+  <div class="container col-md-offset-2 col-md-8">
+
+    <div class="bg-primary">
+      <div class="text-center whosturn">
+        <h3 class="">
+          Sign in
+        </h3>
+      </div>
+    </div>
+    <div >
+      <div class="row">
+        <p class="text-center text-info">
+          Sign in with your email</p>
+      </div>
+
+      <form name="loginForm">
+        <div class="form-group">
+          <label>
+            Email
+          </label>
+          <input class="form-control" type="text" ng-model="login.credentials.email" aria-label="email" required/>
+        </div>
+        <div class="form-group">
+          <label>
+            Password
+          </label>
+          <input class="form-control" type="password" ng-model="login.credentials.password" aria-label="password" required/>
+        </div>
+        <div class="">
+          <button class="btn btn-primary" ng-click="login.login()" aria-label="login" ng-disabled="login.loginForm.$invalid()">Sign In
+          </button>
+          <a class="btn btn-warning pull-right" href="/resetpw">Forgot password?</a>
+        </div>
+      </form>
+      <div ng-show="login.error" class="text-center whosturn bg-danger">
+        <p class="">{{ login.error.reason }}</p>
+      </div>
+      <div class="row text-center">
+        <a class="btn btn-default" href="/register">Need an account?</a>
+      </div>
+
+    </div>
+
+  </div>
+</div>

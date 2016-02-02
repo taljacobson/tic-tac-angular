@@ -1,0 +1,16 @@
+<!-- add a form below the h1 -->
+<div class="container-fluid ma-add-new-party-container">
+  <div class="alert alert-info" ng-hide="addNewGameModal.isLoggedIn">
+    Please log in to create a party!
+  </div>
+  <div ng-show="addNewGameModal.isLoggedIn">
+    <form class="new-game form-group" role="form">
+      <div class="inline">
+        <p>Users online:</p>
+        <span ng-repeat="user in addNewGameModal.Online | notMe ">
+          <button class="btn btn-default" ng-click="addNewGameModal.addGame(user)">{{ user | displayName  }}</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
