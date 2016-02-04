@@ -22,6 +22,7 @@ angular.module('tic-tac-angular').directive('navbar', function() {
         $modal.open({
           animation: true,
           template: '<login></login>',
+          windowClass: 'my-modal-popup'
         });
       };
 
@@ -29,6 +30,7 @@ angular.module('tic-tac-angular').directive('navbar', function() {
         $modal.open({
           animation: true,
           template: '<register></register>',
+          windowClass: 'my-modal-popup'
         });
       };
 
