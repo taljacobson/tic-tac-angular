@@ -33,7 +33,7 @@ Meteor.methods({
 
     if (!match)
       throw new Meteor.Error(404, "No such match!");
-    // makes sure that it got a cell
+
     if (!cell)
       throw new Meteor.Error(404, "No such cell!");
 
@@ -42,8 +42,8 @@ Meteor.methods({
 
     let matchCells = match.cells;
     let theCell = matchCells[cell]
-      // delay deletion, giving it time to animate.
-    if (theCell == 'x') {
+
+    if (theCell == 'X') {
       if (Meteor.isServer) {
         Game.update(matchId, {
           $inc: {
@@ -64,7 +64,7 @@ Meteor.methods({
         })
       }
     }
-    if (theCell == 'o') {
+    if (theCell == 'O') {
       if (Meteor.isServer) {
         Game.update(matchId, {
           $inc: {
@@ -165,12 +165,12 @@ Meteor.methods({
 
     // calls the SetCell function if you are not the creater of the match and turn is set to false, sets you as O
     if (userId === match.invited && match.turn !== true) {
-      player = 'o'
+      player = 'O'
       setCell(player)
     }
     //  calls the SetCell function if you are the creater of the match and turn is set to true, sets you as X
     if (userId === match.owner && match.turn === true) {
-      player = 'x'
+      player = 'X'
       setCell(player)
     }
   },

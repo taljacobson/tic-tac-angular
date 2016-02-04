@@ -3,7 +3,7 @@ angular.module("tic-tac-angular").directive('register', function() {
     restrict: 'E',
     templateUrl: 'client/projects/auth/register/register.html',
     controllerAs: 'register',
-    controller: function ($scope, $reactive, $state) {
+    controller: function ($scope, $reactive, $state, $modal) {
       $reactive(this).attach($scope);
 
       this.credentials = {
@@ -19,7 +19,7 @@ angular.module("tic-tac-angular").directive('register', function() {
             this.error = err;
           }
           else {
-            $state.go('game', {}, { reload: true });
+            $scope.$close();
           }
         });
       };

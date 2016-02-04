@@ -5,7 +5,10 @@ angular.module('tic-tac-angular').directive('gameMain', function() {
     controllerAs: 'gameMain',
     controller: function($scope, $reactive, $modal, $state) {
       $reactive(this).attach($scope);
-
+      // TODO -  user score wins losses .
+      // TODO - current user stats panel on the header.
+      // TODO - invite screen each users win score
+      // TODO - css for x / o value on the cell span
       var Games = this.subscribe('game');
       this.subscribe('users');
       this.myUser = Meteor.userId()

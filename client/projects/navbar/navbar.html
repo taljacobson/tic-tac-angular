@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-left-container">
+        <h1>
+          <a href="/" class="navbar-brand">Home</a>
+        </h1>
+      </div>
+    </div>
+    <div class="navbar-right-container">
+      <div class="">
+        <!-- <login-buttons></login-buttons> -->
+        <button ng-click="ticTacAngular.openLoginModal()" class="btn btn-primary" ng-hide="ticTacAngular.isLoggedIn">
+          <span class="glyphicon glyphicon-log-in"></span>
+          Login</button>
+        <button ng-click="ticTacAngular.openRegisterModal()" class="btn btn-primary" ng-hide="ticTacAngular.isLoggedIn">
+          <span class="glyphicon glyphicon-user"></span>
+          Sign up</button>
+        <button ng-click="ticTacAngular.logout()" ng-show="ticTacAngular.isLoggedIn" class="btn btn-warning pull-right">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>

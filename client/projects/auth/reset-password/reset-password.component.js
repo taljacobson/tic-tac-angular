@@ -3,7 +3,7 @@ angular.module("tic-tac-angular").directive('resetpw', function() {
     restrict: 'E',
     templateUrl: 'client/projects/auth/reset-password/reset-password.html',
     controllerAs: 'resetpw',
-    controller: function ($scope, $reactive, $state) {
+    controller: function ($scope, $reactive, $state, $modal) {
       $reactive(this).attach($scope);
 
       this.credentials = {
@@ -18,7 +18,7 @@ angular.module("tic-tac-angular").directive('resetpw', function() {
             this.error = err;
           }
           else {
-            $state.go('game', {}, { reload: true });
+            $scope.$close();
           }
         });
       };

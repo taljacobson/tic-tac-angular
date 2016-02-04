@@ -9,27 +9,10 @@
   <meta name="application-name" content="tic tac angular">
   <base href="/">
   <link href='http://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body ng-app="tic-tac-angular" ng-strict-di="">
   <div class="container-fluid">
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <h1>
-            <a href="/" class="navbar-brand">Home</a>
-          </h1>
-        </div>
-        <div class="navbar-right-container">
-          <div class="login btn btn-primary">
-            <login-buttons></login-buttons>
-            <!-- <button ui-sref="login" class="btn btn-primary" ng-hide="ticTacAngular.isLoggedIn">Login</button>
-  					<button ui-sref="register" class="btn btn-primary" ng-hide="ticTacAngular.isLoggedIn">Sign up</button>
-  					<button ng-click="ticTacAngular.logout()" class="btn btn-warning pull-right" ng-show="ticTacAngular.isLoggedIn">Logout</button> -->
-          </div>
-        </div>
-      </div>
-    </nav>
+    <navbar></navbar>
     <div class="h100">
       <div ui-view class="ma-main-container h100"></div>
     </div>

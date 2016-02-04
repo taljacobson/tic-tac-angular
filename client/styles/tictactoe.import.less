@@ -15,21 +15,76 @@
   .wins {
     align-self: center;
   }
-  @media (min-width: 400px) {
+  @media (min-width: 768px) {
     width: 100vh;
   }
 }
-@keyframes border-blink {
+.hide-mobile {
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    .wins {
+      align-self: center;
+      display: flex;
+      flex-flow: inherit;
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+    }
+  }
+}
+.hide-tablet {
+  display: block;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+@keyframes win-pop {
   0% {
-    font-size: 2.1em;
+    font-size: 4.1em;
+    color: lighten(@color6, 20%);
+    margin-left: -0.35em;
+  }
+  25%{
   }
   50% {
-    font-size: 2.3em;
-    color: darken(@color6, 20%);
+    font-size: 5.3em;
+    color: lighten(@color6, 10%);
+    margin-left: -0.35em;
+  }
+  75%{
   }
   100% {
     color: @color6;
-    font-size: 2.2em;
+    font-size: 4.2em;
+    margin-left: -0.35em;
+  }
+}
+
+@keyframes value-insert {
+  0% {
+    font-size: 4.1em;
+    color: lighten(@color6, 20%);
+    margin-left: -0.35em;
+  }
+  25%{
+  }
+  50% {
+    font-size: 5.3em;
+    color: lighten(@color6, 10%);
+    margin-left: -0.35em;
+  }
+  75%{
+  }
+  100% {
+    color: @color6;
+    font-size: 4.2em;
+    margin-left: -0.35em;
   }
 }
 .square {
@@ -37,7 +92,7 @@
   float: left;
   min-width: 2em;
   width: 33.333333333%;
-  min-height: 2em;
+  min-height: 100px;
   height: 33.333333333%;
   cursor: pointer;
   will-change: border-color;
@@ -46,7 +101,7 @@
   text-align: center;
   font-size: 2em;
   max-width: 33.333333333%;
-  line-height: 0.7;
+
   &.Center {
     border-style: solid;
   }
@@ -91,11 +146,19 @@
     position: absolute;
     padding: 0;
     vertical-align: middle;
-    font-size: 2em;
-    margin-left: -0.3em;
+    font-size: 4em;
+    line-height: 90%;
     &.blink {
       color: @color6;
-      animation: border-blink 0.8s ease-in-out;
+      animation: win-pop 0.6s ease-in-out ;
+    }
+    &.O:not(.blink){
+      margin-left: -0.4em;
+      animation: value-insert 0.3s ease-in-out ;
+    }
+    &.X:not(.blink){
+      margin-left: -0.3em;
+      animation: value-insert 0.3s ease-in-out ;
     }
   }
 }

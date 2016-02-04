@@ -8,7 +8,7 @@
       <div class="inline">
         <p>Users online:</p>
         <span ng-repeat="user in addNewGameModal.Online | notMe ">
-          <button class="btn btn-default" ng-click="addNewGameModal.addGame(user)">{{ user | displayName  }}</button>
+          <button class="btn btn-default" aria-label="pick player" ng-click="addNewGameModal.addGame(user)">{{ user | displayName  }}</button>
         </span>
       </div>
     </form>

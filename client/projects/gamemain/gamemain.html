@@ -1,5 +1,4 @@
 <div >
-
   <div class="jumbotron">
     <h1>tic-tac-angular</h1>
     <h3>
@@ -7,69 +6,78 @@
     </h3>
   </div>
 
+
   <div class="">
     <!--show if the user is not logged in  -->
     <div ng-hide="gameMain.isLoggedIn" class="bg-danger text-center">
       <h1>you need to log in to play</h1>
+      <p>
+        please not - this is a development build, there is no email verification system in place
+      </p>
+      <p>
+        there is no need to register with a genuine email address
+      </p>
     </div>
 
     <div ng-show="gameMain.isLoggedIn">
       <div class="text-center">
-        <button class="btn " ng-click="gameMain.openAddNewGameModal()">invite
-          <i class="fa fa-plus"></i>
+        <button class="btn btn-default" aria-label="Invite player" ng-click="gameMain.openAddNewGameModal()">
+          <i class="glyphicon glyphicon-plus"></i>
+          Invite
         </button>
       </div>
-
-      <div class="" ng-repeat="game in gameMain.CreatedMatches">
+<div class="row">
+      <div class="col-md-6" ng-repeat="game in gameMain.CreatedMatches">
         <div class="row">
-          <div class=" flex" ng-class="game.confirm ? 'bg-success': ''">
+          <div class=" flex" ng-class="game.confirm ? 'bg-color3': ''">
             <div class="flexitem" ui-sref="match({ gameId: game._id })">
-              <input type="button" class="btn btn-success letsplay" value="lets play!" ng-click="gameMain.confirm(game._id, 'confirm')" ng-disabled="!game.confirm && (gameMain.currentUserId == game.owner)">
+              <button ng-show="!game.confirm && (gameMain.currentUserId == game.owner)" aria-label="inviting player" type="button" class="btn btn-info letsplay" name="name" value="waiting for player" ng-disabled="!game.confirm && (gameMain.currentUserId == game.owner)">
+                <i class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></i>
+                Inviting
+              </button>
+              <button ng-show="game.confirm && (gameMain.currentUserId == game.owner)" aria-label="ready to play" type="button" class="btn btn-success letsplay" value="Lets play!">Lets play!</button>
             </div>
-            <div class=" text-center flexitem">
+            <div class="text-center flexitem">
               <p>{{ gameMain.getProjectCreator(game) | displayName}}
-                <br>vs
-                <br>
+                vs <br>
                 {{gameMain.invitedUser(game) | displayName}}
                 <br>
-                <i am-time-ago="game.createdAt"></i>
+                <i class="small" am-time-ago="game.createdAt"></i>
               </p>
             </div>
             <div class=" flexitem">
-              <input ng-show="gameMain.currentUserId == game.owner" type="button" value="delete " class="btn btn-danger delete " ng-click="gameMain.removeProject(game)">
-              <input ng-show="gameMain.currentUserId == game.invited" type="button" value="decline" class="btn btn-danger delete" ng-click="gameMain.confirm(game._id, 'decline')">
+              <input ng-show="gameMain.currentUserId == game.owner" aria-label="delele" type="button" value="delete " class="btn btn-danger delete " ng-click="gameMain.removeProject(game)">
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="text-center arrowdiv">
-        <i class="fa fa-arrow-circle-up"></i>
-        <h2>Your games
-        </h2>
+      <div class="text-center arrowdiv row">
+        <i class="glyphicon glyphicon-arrow-up"></i>
+        <h2>Your games</h2>
+        <hr>
         <h2>Accept an invitation</h2>
-        <i class="fa fa-arrow-circle-down"></i>
+        <i class="glyphicon glyphicon-arrow-down"></i>
       </div>
 
-      <div class="">
-        <div ng-repeat="game in gameMain.projects">
+      <div class="row">
+        <div class="col-md-6" ng-repeat="game in gameMain.projects">
           <div class="row">
-            <div class=" flex" ng-class="game.confirm ? 'bg-success': ''">
+            <div class=" flex" ng-class="game.confirm ? 'bg-color3': ''">
               <div class="flexitem" ui-sref="match({ gameId: game._id })">
-                <input type="button" class="btn btn-success letsplay" value="lets play!" ng-click="gameMain.confirm(game._id, 'confirm')" ng-disabled="!game.confirm && (gameMain.currentUserId == game.owner)">
+                <input type="button" class="btn btn-success letsplay" value="Lets play!" aria-label="confirm invitation and redirect to match" ng-click="gameMain.confirm(game._id, 'confirm')" ng-disabled="!game.confirm && (gameMain.currentUserId == game.owner)">
               </div>
               <div class=" text-center flexitem">
-                <p>{{ gameMain.getProjectCreator(game) | displayName}}
-                  <br>vs
+                  <p>{{gameMain.invitedUser(game) | displayName}}
+                  Vs <br>
+                  {{ gameMain.getProjectCreator(game) | displayName}}
                   <br>
-                  {{gameMain.invitedUser(game) | displayName}}
-                  <br>
-                  <i am-time-ago="game.createdAt"></i>
+                  <i class="small" am-time-ago="game.createdAt"></i>
                 </p>
               </div>
               <div class=" flexitem">
-                <input ng-show="gameMain.currentUserId == game.owner" type="button" value="delete " class="btn btn-danger delete " ng-click="gameMain.removeProject(game)">
-                <input ng-show="gameMain.currentUserId == game.invited" type="button" value="decline" class="btn btn-danger delete" ng-click="gameMain.confirm(game._id, 'decline')">
+                <input ng-show="gameMain.currentUserId == game.invited" aria-label="decline" type="button" value="decline" class="btn btn-danger delete" ng-click="gameMain.confirm(game._id, 'decline')">
               </div>
             </div>
           </div>

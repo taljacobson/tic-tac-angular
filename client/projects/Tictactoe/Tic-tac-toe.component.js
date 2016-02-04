@@ -38,7 +38,6 @@ angular.module('tic-tac-angular').directive('ticTacToe', function() {
       });
       this.autorun(() => {
         this.getReactively('this.game.turn')
-
       });
       this.checkCells = () => {
         //  all the code that checks wining conditions should go here
@@ -107,7 +106,7 @@ angular.module('tic-tac-angular').directive('ticTacToe', function() {
       // function that takes the onclick with an arg of cell.
       // cell a ng-reapeat value of the cells array that gets
       this.cellPicker = (cell, currentUser) => {
-        if ($("." + cell + "").children().text().length < 3) {
+        if (this.game.cells[cell] == null) {
           Meteor.call('isOwner', this.game._id, currentUser._id, cell, (error) => {
             if (error) {
               console.log('Oops, unable to error! ' + error);
@@ -125,14 +124,11 @@ angular.module('tic-tac-angular').directive('ticTacToe', function() {
         $("." + cell3 + "").children().addClass("blink");
         // Meteor.call('scoreAssing', this.game._id, cell1);
         // removes the highLight
-        $timeout(function() {
+        $timeout( () => {
           // remove the animation class
           $('.square').children().removeClass('blink');
-          timedOutCall()
-        }, 900);
-        timedOutCall = () => {
           Meteor.call('scoreAssing', this.game._id, cell1);
-        }
+        }, 900);
 
       }
 

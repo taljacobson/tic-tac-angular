@@ -6,36 +6,51 @@
 
 <div class="" ng-show="(TicTacToe.ownerOnline.status.online) && (TicTacToe.inviteOnline.status.online)">
   <div class="">
-    <div class="text-center whosturn" ng-class="(TicTacToe.game.owner == currentUser._id) == (TicTacToe.game.turn)? 'bg-success' : 'Error: source does not appear to be markup.'">
+    <div class="text-center whosturn" aria-label="whos turn" ng-class="(TicTacToe.game.owner == currentUser._id) == (TicTacToe.game.turn)? 'bg-success' : 'bg-danger'">
       <h3>{{(TicTacToe.game.owner == currentUser._id) == (TicTacToe.game.turn)? 'your turn' : 'not your turn' }}</h3>
     </div>
   </div>
+<div class="row">
 
-  <div class="game">
-    <div class="board" ng-repeat="(cell, value) in TicTacToe.game.cells">
-      <div class="square {{cell}}" ng-click="TicTacToe.cellPicker(cell, currentUser)">
-        <span class="value">{{value}}</span>
-      </div>
+  <div class="col-sm-2  hide-mobile">
+    <div class="wins ">
+      <h2 aria-label="X player wins">X  wins</h2>
+      <h1>{{TicTacToe.game.xWins}}</h1>
     </div>
   </div>
 
-  <div class="text-center">
+  <div class="game col-sm-8">
+    <div class="board" ng-repeat="(cell, value) in TicTacToe.game.cells">
+      <div class="square {{cell}}" ng-click="TicTacToe.cellPicker(cell, currentUser)">
+        <span class="value {{value}}">{{value}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2 hide-mobile">
+    <div class="wins">
+      <h2 aria-label="O player wins">O wins</h2>
+      <h1>{{TicTacToe.game.oWins}}</h1>
+    </div>
+  </div>
+</div>
+  <div class="text-center hide-tablet">
     <div class="scoreshow">
       <div class="wins ">
-        <span>X wins</span>
+        <h3 aria-label="X player wins">X wins</h3>
         <h1>{{TicTacToe.game.xWins}}</h1>
       </div>
-
       <div>
         <button class="btn btn-danger" ng-click="TicTacToe.reset()">reset</button>
       </div>
       <div class="wins">
-        <span>
+        <h3 aria-label="O player wins">
           O wins
-        </span>
+        </h3>
         <h1>{{TicTacToe.game.oWins}}</h1>
       </div>
     </div>
-
+  </div>
+  <div class="whosturn text-center hide-mobile">
+    <button class="btn btn-danger" aria-label="reset game" ng-click="TicTacToe.reset()">reset</button>
   </div>
 </div>

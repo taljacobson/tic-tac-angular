@@ -39,7 +39,7 @@ angular.module("tic-tac-angular").config(function ($urlRouterProvider, $statePro
 }).run(function ($rootScope, $state) {
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
       if (error === 'AUTH_REQUIRED') {
-        $state.go('login');
+        $state.go('game');
       }
     });
   });

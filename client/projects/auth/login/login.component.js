@@ -3,7 +3,7 @@ angular.module("tic-tac-angular").directive('login', function() {
     restrict: 'E',
     templateUrl: 'client/projects/auth/login/login.html',
     controllerAs: 'login',
-        controller: function ($scope, $reactive, $state) {
+        controller: function ($scope, $reactive, $state, $modal) {
           $reactive(this).attach($scope);
 
           this.credentials = {
@@ -19,8 +19,17 @@ angular.module("tic-tac-angular").directive('login', function() {
                 this.error = err;
               }
               else {
-                $state.go('game', {}, { reload: true });
+                $scope.$close();
               }
+            });
+          };
+
+          this.openResetpwModal = function() {
+            $scope.$close();
+            $modal.open({
+              animation: true,
+              template: '<resetpw></resetpw>',
+              windowClass: 'my-modal-popup'
             });
           };
         }
