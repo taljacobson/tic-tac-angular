@@ -16,7 +16,7 @@ angular.module('tic-tac-angular').directive('navbar', function() {
       });
       this.logout = () => {
         Accounts.logout();
-      }
+      };
 
       this.openLoginModal = function() {
         $modal.open({
@@ -35,5 +35,5 @@ angular.module('tic-tac-angular').directive('navbar', function() {
       };
 
     }
-  }
-})
+  };
+});

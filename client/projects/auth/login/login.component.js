@@ -33,5 +33,5 @@ angular.module("tic-tac-angular").directive('login', function() {
             });
           };
         }
-      }
+      };
     });

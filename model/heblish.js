@@ -1,4 +1,4 @@
-Game = new Mongo.Collection('game')
+Game = new Mongo.Collection('game');
 
 
 Game.allow({
@@ -23,7 +23,7 @@ let cells = {
   'BottomLeft': null,
   'Bottom': null,
   'BottomRight': null
-}
+};
 
 Meteor.methods({
   scoreAssing: function(matchId, cell) {
@@ -41,7 +41,7 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
 
     let matchCells = match.cells;
-    let theCell = matchCells[cell]
+    let theCell = matchCells[cell];
 
     if (theCell == 'X') {
       if (Meteor.isServer) {
@@ -52,7 +52,7 @@ Meteor.methods({
           $set: {
             cells
           }
-        })
+        });
       } else {
         Game.update(matchId, {
           $inc: {
@@ -61,7 +61,7 @@ Meteor.methods({
           $set: {
             cells
           }
-        })
+        });
       }
     }
     if (theCell == 'O') {
@@ -73,7 +73,7 @@ Meteor.methods({
           $set: {
             cells
           }
-        })
+        });
       } else {
         Game.update(matchId, {
           $inc: {
@@ -82,7 +82,7 @@ Meteor.methods({
           $set: {
             cells
           }
-        })
+        });
       }
     }
   },
@@ -101,13 +101,13 @@ Meteor.methods({
         $set: {
           cells
         }
-      })
+      });
     } else {
       Game.update(matchId, {
         $set: {
           cells
         }
-      })
+      });
     }
   },
   isOwner: function(matchId, userId, cell) {
@@ -125,9 +125,9 @@ Meteor.methods({
       //let cellIndex = _.indexOf(_.pluck(match.cells, [cellname]), player);
       //console.log(cellIndex)
       // take the result of the turn object value and inverts its value, true to false
-      let unTurn = !match.turn
-      if (match.cells[cell] != null) {
-        return console.log("this already exists")
+      let unTurn = !match.turn;
+      if (match.cells[cell] !== null) {
+        return console.log("this already exists");
       } else {
         if (Meteor.isServer) {
           Game.update(matchId, {
@@ -146,7 +146,7 @@ Meteor.methods({
         }
 
       }
-    }
+    };
     // checks to see if there is a match by that name
     if (!match)
       throw new Meteor.Error(404, "No such match!");
@@ -161,17 +161,17 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     if (userId == (!match.owner || !match.invited))
-      throw new meteor.Error("not-authorized")
+      throw new meteor.Error("not-authorized");
 
     // calls the SetCell function if you are not the creater of the match and turn is set to false, sets you as O
     if (userId === match.invited && match.turn !== true) {
-      player = 'O'
-      setCell(player)
+      player = 'O';
+      setCell(player);
     }
     //  calls the SetCell function if you are the creater of the match and turn is set to true, sets you as X
     if (userId === match.owner && match.turn === true) {
-      player = 'X'
-      setCell(player)
+      player = 'X';
+      setCell(player);
     }
   },
   invite: function(matchId, userId) {

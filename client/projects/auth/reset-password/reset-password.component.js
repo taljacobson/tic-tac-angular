@@ -23,5 +23,5 @@ angular.module("tic-tac-angular").directive('resetpw', function() {
         });
       };
     }
-  }
+  };
 });

@@ -24,5 +24,5 @@ angular.module("tic-tac-angular").directive('register', function() {
         });
       };
     }
-  }
+  };
 });
