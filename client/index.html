@@ -8,20 +8,9 @@
   <meta name="keywords" content="Angular-meteor, tic tac toe, web game">
   <meta name="application-name" content="tic tac angular">
   <base href="/">
-  <link href='http://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Muli:400,300" rel="stylesheet" type="text/css">
 </head>
 <body ng-app="tic-tac-angular" ng-strict-di="">
-  <div class="container-fluid">
-    <navbar></navbar>
-    <div class="h100">
-      <div ui-view class="ma-main-container h100"></div>
-    </div>
-  </div>
-  <footer class="footer">
-    <div class="text-center">
-      <a href="https://github.com/taljacobson/tic-tac-angular" rel="external" title="github">
-        <i class="fa fa-github"></i>Github</a>
-    </div>
-    <div class="text-right"></div>
-  </footer>
+<game-wrapper></game-wrapper>
+
 </body>
