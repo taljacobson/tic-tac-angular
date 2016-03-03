@@ -39,6 +39,8 @@ angular.module('tic-tac-angular').directive('addNewGameModal', function() {
           'Bottom': null,
           'BottomRight': null
         };
+        this.newGame.xWins = 0,
+        this.newGame.oWins = 0,
         Game.insert(this.newGame);
         this.newGame = {};
         $scope.$close();

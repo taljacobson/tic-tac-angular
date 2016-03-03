@@ -126,7 +126,7 @@ Meteor.methods({
       //console.log(cellIndex)
       // take the result of the turn object value and inverts its value, true to false
       let unTurn = !match.turn;
-      if (match.cells[cell] !== null) {
+      if (match.cells[cell] != null) {
         return console.log("this already exists");
       } else {
         if (Meteor.isServer) {
