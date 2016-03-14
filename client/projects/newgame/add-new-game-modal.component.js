@@ -27,7 +27,7 @@ angular.module('tic-tac-angular').directive('addNewGameModal', function() {
         this.newGame.createdAt = new Date();
         this.newGame.owner = Meteor.user()._id;
         this.newGame.turn = true;
-        this.newGame.invited = Invited._id
+        this.newGame.invited = Invited._id;
         this.newGame.cells = {
           'TopLeft': null,
           'Top': null,
@@ -38,12 +38,14 @@ angular.module('tic-tac-angular').directive('addNewGameModal', function() {
           'BottomLeft': null,
           'Bottom': null,
           'BottomRight': null
-        }
+        };
+        this.newGame.xWins = 0,
+        this.newGame.oWins = 0,
         Game.insert(this.newGame);
         this.newGame = {};
         $scope.$close();
       };
 
     }
-  }
-})
+  };
+});

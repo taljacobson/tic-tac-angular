@@ -16,7 +16,6 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 
 
-angular
 angularui:angular-ui-router
 
 
@@ -28,3 +27,4 @@ angularui:angular-ui-bootstrap
 less
 mizzao:user-status
 jasonaibrahim:angular-moment
+angular

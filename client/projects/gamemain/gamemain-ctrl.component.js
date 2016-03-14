@@ -11,7 +11,7 @@ angular.module('tic-tac-angular').directive('gameMain', function() {
       // TODO - css for x / o value on the cell span
       var Games = this.subscribe('game');
       this.subscribe('users');
-      this.myUser = Meteor.userId()
+      this.myUser = Meteor.userId();
       this.helpers({
         projects: () => {
           return Game.find({
@@ -92,5 +92,5 @@ angular.module('tic-tac-angular').directive('gameMain', function() {
       };
 
     }
-  }
+  };
 });

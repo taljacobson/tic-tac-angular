@@ -11,5 +11,5 @@ angular.module('tic-tac-angular').filter('displayName', function() {
     } else {
       return user;
     }
-  }
+  };
 });
