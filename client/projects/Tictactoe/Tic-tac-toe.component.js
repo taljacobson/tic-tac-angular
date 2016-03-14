@@ -108,7 +108,6 @@ angular.module('tic-tac-angular').directive('ticTacToe', function() {
 
       this.autorun(() => {
         this.getReactively('this.game.turn');
-        console.log("run");
         if (Games.ready()) {
           this.checkCells();
         }
